@@ -19,8 +19,8 @@ public class LeapYearGUI extends JFrame{
                 try {
                     int year = Integer.parseInt(tfYear.getText());
                     yearChecker(year);
-                }catch (Exception ee){
-                    JOptionPane.showMessageDialog(panel1,ee.getMessage());
+                }catch (NumberFormatException i){
+                    JOptionPane.showMessageDialog(panel1,"Input Must be a Number");
                 }
 
             }
