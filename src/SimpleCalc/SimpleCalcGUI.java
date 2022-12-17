@@ -27,7 +27,7 @@ public class SimpleCalcGUI extends JFrame{
                                int result = a + b;
                                lblResult.setText(Integer.toString(result));
                            }catch (NumberFormatException i){
-                               JOptionPane.showMessageDialog(panel1,"Input Must be a Number");
+                               JOptionPane.showMessageDialog(panel1,"Input must be a Number || Fields Must have Input");
                            }
                            break;
                        case "-":
@@ -39,7 +39,7 @@ public class SimpleCalcGUI extends JFrame{
                                lblResult.setEditable(false);
                            }catch (NumberFormatException i){
                                lblResult.setEditable(true);
-                               JOptionPane.showMessageDialog(panel1,"Input Must be a Number");
+                               JOptionPane.showMessageDialog(panel1,"Input must be a Number || Fields Must have Inputs");
                            }
 
                            break;
@@ -53,9 +53,15 @@ public class SimpleCalcGUI extends JFrame{
                            lblResult.setEditable(false);
                            }catch (NumberFormatException ii){
                                lblResult.setEditable(true);
-                               JOptionPane.showMessageDialog(panel1,"Input must be a Number");
+                               if(tfNumber1 != null || tfNumber2 != null){
+                                   JOptionPane.showMessageDialog(panel1,"Input must be a Number || Fields Must have Inputs");
+                               }else{
+                                   JOptionPane.showMessageDialog(panel1,"Must have Inputs in both fields");
+                               }
                            }catch (ArithmeticException ii){
                                JOptionPane.showMessageDialog(panel1,"Cannot Divide by Zero");
+                           }finally {
+                               JOptionPane.showMessageDialog(panel1,"Must have an Input");
                            }
                            break;
                        case "*":
@@ -67,7 +73,7 @@ public class SimpleCalcGUI extends JFrame{
                            lblResult.setEditable(false);
                            }catch (NumberFormatException i){
                                lblResult.setEditable(true);
-                               JOptionPane.showMessageDialog(panel1,"Input must be a Number");
+                               JOptionPane.showMessageDialog(panel1,"Input must be a Number || Fields Must have Inputs");
                            }
                            break;
                    }
