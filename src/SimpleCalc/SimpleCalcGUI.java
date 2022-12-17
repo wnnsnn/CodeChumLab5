@@ -26,8 +26,8 @@ public class SimpleCalcGUI extends JFrame{
                                int b = Integer.parseInt(tfNumber2.getText());
                                int result = a + b;
                                lblResult.setText(Integer.toString(result));
-                           }catch (Exception ee){
-                               JOptionPane.showMessageDialog(panel1,ee.getMessage());
+                           }catch (NumberFormatException i){
+                               JOptionPane.showMessageDialog(panel1,"Input Must be a Number");
                            }
                            break;
                        case "-":
@@ -37,9 +37,9 @@ public class SimpleCalcGUI extends JFrame{
                            int result1 = a1-b1;
                            lblResult.setText(Integer.toString(result1));
                                lblResult.setEditable(false);
-                           }catch (Exception ee){
+                           }catch (NumberFormatException i){
                                lblResult.setEditable(true);
-                               JOptionPane.showMessageDialog(panel1,ee.getMessage());
+                               JOptionPane.showMessageDialog(panel1,"Input Must be a Number");
                            }
 
                            break;
@@ -51,9 +51,11 @@ public class SimpleCalcGUI extends JFrame{
                            int result2 = a2/b2;
                            lblResult.setText(Integer.toString(result2));
                            lblResult.setEditable(false);
-                           }catch (Exception ee){
+                           }catch (NumberFormatException ii){
                                lblResult.setEditable(true);
-                               JOptionPane.showMessageDialog(panel1,ee.getMessage());
+                               JOptionPane.showMessageDialog(panel1,"Input must be a Number");
+                           }catch (ArithmeticException ii){
+                               JOptionPane.showMessageDialog(panel1,"Cannot Divide by Zero");
                            }
                            break;
                        case "*":
@@ -63,10 +65,9 @@ public class SimpleCalcGUI extends JFrame{
                            int result3 = a3*b3;
                            lblResult.setText(Integer.toString(result3));
                            lblResult.setEditable(false);
-                           }catch (Exception ee){
+                           }catch (NumberFormatException i){
                                lblResult.setEditable(true);
-                               JOptionPane.showMessageDialog(panel1,ee.getMessage())
-                               ;
+                               JOptionPane.showMessageDialog(panel1,"Input must be a Number");
                            }
                            break;
                    }
@@ -86,5 +87,6 @@ public class SimpleCalcGUI extends JFrame{
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setVisible(true);
     }
+
 }
 
