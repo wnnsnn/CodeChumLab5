@@ -22,7 +22,7 @@
             </constraints>
             <properties>
               <font size="24"/>
-              <text value="Input Year"/>
+              <text value="dd"/>
             </properties>
           </component>
           <component id="c0e32" class="javax.swing.JTextField" binding="tfYear">
