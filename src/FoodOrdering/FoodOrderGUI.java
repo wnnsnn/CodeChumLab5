@@ -40,8 +40,8 @@ public class FoodOrderGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Buy();
-                }catch(Exception ee){
-                    JOptionPane.showMessageDialog(panel1, ee.getMessage());
+                }catch(NullPointerException ee){
+                    JOptionPane.showMessageDialog(panel1, "You must order");
                 }
             }
         });
@@ -57,25 +57,32 @@ public class FoodOrderGUI extends JFrame{
 
     public void Buy(){
         double total = 0.0;
+        int noSelection = 0;
         for(JCheckBox mo: Menu){
             if(mo.isSelected()) {
                 if (mo == cPizza) {
                     total = total + 100;
+                    noSelection ++;
                 }
                 if (mo == cBurger) {
                     total = total + 80;
+                    noSelection ++;
                 }
                 if (mo == cFries) {
                     total = total + 65;
+                    noSelection ++;
                 }
                 if (mo == cSoftDrinks) {
                     total = total + 55;
+                    noSelection ++;
                 }
                 if (mo == cTea) {
                     total = total + 50;
+                    noSelection ++;
                 }
                 if (mo == cSundae) {
                     total = total + 40;
+                    noSelection ++;
                 }
             }
         }
@@ -89,6 +96,9 @@ public class FoodOrderGUI extends JFrame{
                     total = total-(total * .15);
                 }
             }
+        }
+        if(noSelection == 0){
+            throw new NullPointerException();
         }
         JOptionPane.showMessageDialog(panel1, String.format("The total price is Php %.2f", total));
     }
